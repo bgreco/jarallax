@@ -376,7 +376,10 @@ class Jarallax {
   coverImage() {
     const self = this;
 
-    const { height: wndH } = getWindowSize();
+    const wndH = Math.min(
+      window.scrollY + self.image.$container.getBoundingClientRect().bottom,
+      getWindowSize().height
+    );
     const rect = self.image.$container.getBoundingClientRect();
     const contH = rect.height;
     const { speed } = self.options;
@@ -455,7 +458,10 @@ class Jarallax {
       return;
     }
 
-    const { height: wndH } = getWindowSize();
+    const wndH = Math.min(
+      window.scrollY + self.image.$container.getBoundingClientRect().bottom,
+      getWindowSize().height
+    );
     const rect = self.$item.getBoundingClientRect();
     const contT = rect.top;
     const contH = rect.height;

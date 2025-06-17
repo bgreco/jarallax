@@ -1,6 +1,6 @@
 /*!
  * Jarallax v2.2.1 (https://github.com/nk-o/jarallax)
- * Copyright 2024 nK <https://nkdev.info>
+ * Copyright 2025 nK <https://nkdev.info>
  * Licensed under MIT (https://github.com/nk-o/jarallax/blob/master/LICENSE)
  */
 (function (global, factory) {
@@ -574,9 +574,7 @@
     }
     coverImage() {
       const self = this;
-      const {
-        height: wndH
-      } = getWindowSize();
+      const wndH = Math.min(window.scrollY + self.image.$container.getBoundingClientRect().bottom, getWindowSize().height);
       const rect = self.image.$container.getBoundingClientRect();
       const contH = rect.height;
       const {
@@ -652,9 +650,7 @@
       if (!force && !self.isVisible()) {
         return;
       }
-      const {
-        height: wndH
-      } = getWindowSize();
+      const wndH = Math.min(window.scrollY + self.image.$container.getBoundingClientRect().bottom, getWindowSize().height);
       const rect = self.$item.getBoundingClientRect();
       const contT = rect.top;
       const contH = rect.height;
